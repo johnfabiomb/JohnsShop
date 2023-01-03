@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+/**
+ * Main component
+ */
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+})
+export default class AppComponent {}

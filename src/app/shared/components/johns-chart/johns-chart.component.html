@@ -1,0 +1,14 @@
+<div class="myOwnChart">
+  <div class="chart">
+    <div
+      *ngFor="let bar of data; let i = index;"
+      [style.height]="(percentages[i] * 200) / 100 + 'px'"
+      class="bar"
+    >
+      <span class="bar-label">{{ bar }}</span>
+    </div>
+  </div>
+  <div class="labels">
+    <div *ngFor="let label of labels; let i = index;">{{ label }}</div>
+  </div>
+</div>

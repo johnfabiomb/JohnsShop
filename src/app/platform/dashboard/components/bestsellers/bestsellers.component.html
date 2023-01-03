@@ -1,0 +1,19 @@
+<p class="title">Bestsellers</p>
+<app-paginator [template]="template" [total]="records?.length ?? 0">
+  <ng-template #template let-start="start" let-end="end">
+    <div class="bestsellers">
+      <table>
+        <tr>
+          <th>Product Name</th>
+          <th># Units Sold</th>
+          <th>Renueve</th>
+        </tr>
+        <tr *ngFor="let item of records | slice: start:end">
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.units }}</td>
+          <td>{{ item.revenue }}</td>
+        </tr>
+      </table>
+    </div>
+  </ng-template>
+</app-paginator>

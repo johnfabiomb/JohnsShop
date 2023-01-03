@@ -1,0 +1,47 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 40px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    &__title {
+      font-size: 26px;
+    }
+    &__search {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      padding: 1;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      i {
+        font-size: 25px;
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+      }
+      input {
+        width: 200px;
+      }
+    }
+  }
+  &__table {
+    table {
+      width: 100%;
+      padding: 20px;
+      tr > td,
+      th {
+        padding: 15px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.processing {
+  color: red;
+}
+.delivered {
+  color: #00c600;
+}

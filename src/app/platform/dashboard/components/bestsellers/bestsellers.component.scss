@@ -1,0 +1,14 @@
+.bestsellers {
+  table {
+    width: 100%;
+    padding: 20px;
+    tr > td,
+    th {
+      padding: 15px;
+      text-align: left;
+    }
+  }
+}
+.title {
+  font-size: 26px;
+}

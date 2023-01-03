@@ -1,0 +1,33 @@
+.myOwnChart {
+  max-width: 100%;
+  overflow-x: auto;
+  .chart {
+    display: flex;
+    align-items: flex-end;
+    height: 230px;
+    border: 2px solid rgba(128, 128, 128, 0.558);
+    justify-content: space-around;
+    .bar {
+      position: relative;
+      width: 20px;
+      border: 2px solid rgba(128, 128, 128, 0.558);
+      text-align: center;
+      margin-bottom: -2px;
+    }
+    .bar-label {
+      position: absolute;
+      top: -20px;
+      right: 0;
+      left: 0;
+    }
+  }
+  .labels {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    div {
+      transform: rotate(-45deg);
+    }
+  }
+}

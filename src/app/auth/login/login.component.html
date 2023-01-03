@@ -1,0 +1,17 @@
+<div class="login-container">
+  <div class="login-form">
+    <div class="header">
+      <p class="header__title">John's
+        Artisanal Halloween
+        Candy Shop</p>
+      <img class="header__logo" src="assets/images/logo.svg" />
+    </div>
+      <form #ngForm="ngForm" role="form" [formGroup]="form" class="body" (submit)="attempt()">
+        <input type="text" formControlName="username" placeholder=" username">
+        <label *ngIf="getControl('username').invalid && ngForm.submitted" class="text-red">Username is required</label>
+        <input type="password" formControlName="password" placeholder=" ********">
+        <label *ngIf="getControl('password').invalid && ngForm.submitted" class="text-red">Password is required</label>
+        <input class="body___submit" type="submit" value="Login">
+      </form>
+  </div>
+</div>

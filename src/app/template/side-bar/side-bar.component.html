@@ -1,0 +1,13 @@
+<div class="sidebar">
+  <img class="sidebar__logo" src="assets/images/logo.svg" />
+  <div class="navigation">
+    <a
+      *ngFor="let item of links"
+      [routerLink]="item?.path"
+      (click)="item?.click ? item?.click() : null"
+      class="navigation__item"
+      routerLink="platform/dashboard"
+      >{{ item.title }}</a
+    >
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div *ngIf="data$ | async as data;" class="dashboard">
+  <p class="dashboard__title">Dashboard</p>
+  <div class="stats">
+    <div class="item">
+      <label>Today</label>
+      <div class="item__value">$1456 / 9 orders</div>
+    </div>
+    <div class="item">
+      <label>Last week</label>
+      <div class="item__value">$34k / 120 orders</div>
+    </div>
+    <div class="item">
+      <label>Today</label>
+      <div class="item__value">$95k / 876 orders</div>
+    </div>
+  </div>
+  <div class="renueve-header">
+    <p class="renueve-header__title">
+      Renueve ({{ chartToggle$.value ? "Last 12 months" : "Last 7 days" }})
+    </p>
+    <div>
+      <i
+        class="fa fa-toggle-{{ chartToggle$.value ? 'on' : 'off' }}"
+        (click)="chartToggle$.next(!chartToggle$.value)"
+        aria-hidden="true"
+      ></i>
+    </div>
+  </div>
+  <div>
+    <johns-chart
+      *ngIf="chartToggle$.value"
+      #JohnChart
+      [labels]="data.yearChartData.labels"
+      [data]="data.yearChartData.data"
+    ></johns-chart>
+    <johns-chart
+      *ngIf="!chartToggle$.value"
+      #JohnChart
+      [labels]="data.weekChartData.labels"
+      [data]="data.weekChartData.data"
+    ></johns-chart>
+  </div>
+  <app-bestsellers [records]="data.bestsellers"></app-bestsellers>
+</div>

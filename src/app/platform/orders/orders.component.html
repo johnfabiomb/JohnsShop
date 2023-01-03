@@ -1,0 +1,31 @@
+<div class="orders">
+  <div class="header">
+    <p class="header__title">Orders</p>
+    <div class="header__search">
+      <i class="fa fa-search" ></i>
+      <input #searchInput type="text" (keyup)="search(searchInput.value)">
+    </div>
+  </div>
+  <ng-container *ngIf="data$ | async as data;">
+    <app-paginator [template]="template" [pageSize]="50" [page$]="page$" [total]="data?.total ?? 0">
+      <ng-template #template let-start="start" let-end="end">
+        <div class="orders__table">
+          <table>
+            <tr>
+              <th width="400px">Product Name</th>
+              <th width="100px">Price</th>
+              <th width="100px">Date</th>
+              <th width="40px">Status</th>
+            </tr>
+            <tr *ngFor="let item of data.orders">
+              <td>{{item.product.name}}</td>
+              <td>{{item.total | currency: item.currency }}</td>
+              <td>{{item.created_at | date }}</td>
+              <td [class]="item.status">{{item.status}}</td>
+            </tr>
+          </table>
+        </div>
+      </ng-template>
+    </app-paginator>
+  </ng-container>
+</div>

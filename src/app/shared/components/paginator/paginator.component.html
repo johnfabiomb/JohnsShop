@@ -1,0 +1,22 @@
+<!-- Page safe subscription -->
+  <ng-container *ngIf="page$ | async as page;">
+    <div class="container">
+
+      <!-- CUSTOM TEMPLATE -->
+      <ng-container [ngTemplateOutlet]="template"
+        [ngTemplateOutletContext]="{ start: ((page-1)*pageSize), end: (((page-1)*pageSize)+pageSize) }">
+      </ng-container>
+      <!-- CUSTOM TEMPLATE END -->
+
+    </div>
+
+    <!-- Paginator -->
+    <div class="paginator">Page
+      <i (click)="previousPage()" class="fa fa-arrow-left"></i>
+      {{ page }} of {{ totalPages }}
+      <i (click)="nextPage()" class="fa fa-arrow-right"></i>
+    </div>
+    <!-- Paginator END -->
+
+  </ng-container>
+<!-- Page safe subscription END -->
